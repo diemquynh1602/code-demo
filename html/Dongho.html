@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <link rel="shortcut icon" href="../img/LOGO.webp">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        
+         .float-left {
+            background-color: black !important;
+         }
+        .khung {
+            border: 1px solid #d9d9d4 !important;
+            background-color: #dbd5d5 !important;
+        }
+        .card1 {
+            background-color: #dbd5d5 !important;
+        }
+        
+        .item-rating {
+            margin-top: 5px;
+        }
+        .icontt-star {
+            background-position: -113px -60px;
+            background-position-x: -113px;
+            background-position-y: -60px;
+            width: 14px;
+            height: 14px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .p{
+    height: 100%;
+    width: 100%;
+   
+    font-family: 'Times New Roman', Times, serif;
+}
+.ft{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(249, 249, 191);
+}
+.xx{
+    background-color: rgb(249, 249, 191);
+}
+.mc:hover{
+    color: red;
+}
+nav ul li{
+    padding-right: 20px;
+}
+nav ul li a{
+    color: white;
+}
+.mxanh{
+    background-color: blue;
+}
+.mn:hover{
+    color: blue;
+    box-shadow: 0 0 5px rgb(137, 231, 255),
+    0 0 25px rgb(137, 231, 255),
+    0 0 50px rgb(137, 231, 255);
+}
+.sm{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    text-shadow:1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+.h1{
+    text-shadow:1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    padding-left: 15px;
+}
+.bg:hover{
+    background: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4;
+    background: linear-gradient(white, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+    color: #ffffff;
+    border-radius: 10px 10px 10px 10px;
+}
+.mauchu{
+    color: rgb(0, 0, 0);
+    background-color: #d2ebff;
+    border-radius: 3px 3px 3px 3px;
+}
+.mauchu:hover{
+    background: #03e9f4;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 50px #03e9f4;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+    color: #ffffff;
+}   
+    .dc{
+        padding-right: 20px;
+    }
+    </style>   
+</head>
+<body>
+    <div class="p">
+        <div class="row xx" style="font-size: 17px; ">
+            <div class="col-1">
+                <a href="../html/Sitemap.html"><img src="../img/111.jpg" class="img-thumbnail" alt="" height="56px" width="56px" ></a>
+            </div>
+            <div class="col-7 ">
+                <nav class="navbar navbar-expand-sm  navbar-drank justify-content-center ">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <div class="bg">
+                                <a href="../html/Trangchu.html" class="nav-link" style="color: black;">Trang chủ</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="bg">
+                                <a href="../html/Dongho.html" class="nav-link" style="color: black;">Thức Ăn</a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="bg">
+                            <a href="../html/Gioithieu.html" class="nav-link" style="color: black;">Giới thiệu</a>
+                            </div>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="bg">
+                            <a href="../html/Lienhe.html" class="nav-link" style="color: black;">Liên hệ</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <input style="border-radius: 5px 5px 5px 5px;" placeholder="Tìm kiếm theo tên, hãng,..." type="text" />
+                            <span class="uil uil-search"> <i class="fa fa-search"></i></span>
+                            <button type="submit" ><img src="../img/logotimkiem.png" width="20px" height="20px"></button>
+                        </li>
+                    </ul> 
+                </nav>      
+            </div>
+            <div class="col-4 ">   
+                <nav class="navbar navbar-expand-sm navbar-drank " >
+                    <ul class="navbar-nav">  
+                        <li class="nav-item">
+                            <div class="bg">
+                                <a href="../html/Thanhtoan.html" class="nav-link" style="color: black;"><img src="../img/gohang.png" width="20px" height="20px"> Giỏ hàng</a>
+                            </div>
+                        </li>
+                        <li class="nav-item ">
+                            <div class="nav-link bg">
+                                <img src="../img/logologin.png" width="20px" height="20px" alt="">
+                                <a href="../html/Dangnhap.html" style="text-decoration: none; color: black">Đăng nhập |</a>
+                                <a href="../html/Dangky.html" style="text-decoration: none; color : black">Đăng ký</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>        
+            </div>
+             
+    </div>
+        
+
+    <div class="row">
+        
+       
+        <img src="../img/111a.png" class="" width="100%">
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="col-12">
+                <!-- nav pil -->
+                <ul class="nav nav-pills" role="tablist" style="font-size: 20px; color: black;">
+                    <li class="nav-item" style="color: black;">
+                      <a class="nav-link active" data-toggle="pill" href="#DangChieu">Thức ăn tầm trung</a>
+                    </li>
+                    <li class="nav-item" style="color: black;">
+                      <a class="nav-link" data-toggle="pill" href="#SapChieu">Thức Ăn cao cấp</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+                <!-- tab panes  -->
+            <div class="tab-content">
+                    <div id="DangChieu" class="container tab-pane active"><br>
+                      <table >
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="../html/CTSP12.html" class="nav-link">
+                                            <img src="../img/12c.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Frederique Constant - Thức ăn cho mèo</p>
+            
+                                            <p><b style="color: red;">331.800₫
+                                                </b>
+                                            <br><del style="color: black;">390.400₫</del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-15%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP1.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="../html/CTSP10.html" class="nav-link">
+                                            <img src="../img/24.png" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Longines - Thịt Xé Sợi</p>
+            
+                                            <p><b style="color: red;"> 491.200₫
+                                                </b>
+                                            <br><del style="color: black;">690.000₫</del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-20%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP2.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="../html/CTSP5.html" class="nav-link">
+                                            <img src="../img/34.png" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Olym Pianus - Thịt Đóng Hộp</p>
+            
+                                            <p><b style="color: red;"> 70.400₫
+                                                 </b>
+                                            <br><del style="color: black;">88.400₫</del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-20%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP3.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                            
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="../html/CTSP8.html" class="nav-link">
+                                            <img src="../img/23.png" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Tissot - Snack Khô <br><br></p>
+            
+                                            <p><b style="color: red;">  11.800₫
+                                                </b>
+                                            <br><del style="color: black;">22.600₫   </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-20%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP4.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="../html/CTSP2.html" class="nav-link">
+                                            <img src="../img/12.png" alt="" width="300px" height="328px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Tissot - Bánh Khô</p>
+            
+                                            <p><b style="color: red;"> 13.600₫</b>
+                                            <br><del style="color: black;">19.000₫</del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-20%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP5.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+            
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/1az.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Olym Pianus - xương ống</p>
+            
+                                            <p><b style="color: red;">704.000₫</b>
+                                            <br><del style="color: black;">880.000₫ </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-20%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP6.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                            </tr>
+                           
+                        </tbody>
+                      </table>
+                    </div>
+                    <div id="SapChieu" class="container tab-pane fade"><br>
+                      <table >
+                         <tbody>
+                              <tr>
+                               
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/cc1.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Tissot - Đóng gói</p>
+            
+                                            <p><b style="color: red;"> 136.000₫</b>
+                                            <br><del style="color: black;">190.000₫ </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-28%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP7.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/cc2.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Tissot - Sấy Khô</p>
+            
+                                            <p><b style="color: red;">  118.000₫</b>
+                                            <br><del style="color: black;">226.000₫ </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-48%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP8.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/cc3.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Orient - Xúc Xích</p>
+            
+                                            <p><b style="color: red;">  65.000₫</b>
+                                            <br><del style="color: black;">80.000₫ </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-20%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP9.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/cc4.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Longines - Pate</p>
+            
+                                            <p><b style="color: red;"> 49.120₫</b>
+                                            <br><del style="color: black;">69.000₫ </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-29%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP7.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/cc5.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Longines - Cỏ</p>
+            
+                                            <p><b style="color: red;">  465.000₫</b>
+                                            <br><del style="color: black;">599.5000₫  </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-22%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP8.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+            
+                                </td>
+                                <td>
+                                    <div class="col card1 card">
+                                        <a href="#" class="nav-link">
+                                            <img src="../img/cc6.jpg" alt="" width="300px" height="300px" >
+                                        </a>
+                                        <div style="padding-left: 20px; font-size: 18px;">
+                                            <p style="color: black;">Frederique Constant - Mỳ Italia</p>
+            
+                                            <p><b style="color: red;">  331.800₫</b>
+                                            <br><del style="color: black;">390.400₫ </del>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-15%<br>
+                                            <img src="../img/5SAO.png" width="90px" height="30px" alt=""></p>
+                                        </div>
+                                        <button style="width: 200px; margin-left: 20px; background-color: black;"><a href="../html/CTSP9.html" class="nav-link" style="color: white; padding-left: -20px;">Giá: Liên hệ <i class="fas fa-phone-volume"></i></a></button>
+                                    </div>
+                                </td>
+                              </tr>
+                         </tbody>
+                      </table>
+                    </div>
+                    
+            </div>
+        </div>
+
+            </div>
+        </div>
+    </div>
+        <div class="container-fluid padding">
+            <div class="row text-center padding">
+                <div class="col-12">
+                    <img src="../img/logo11.png" alt="logo">
+                    <a href="#"><i class="fas fa-facebook"></i> </a>
+                    <a href="#"><i class="fas fa-twitter"></i> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="ft">
+        <div class="row"><br></div>
+        
+        <div class="row " style="font-size: 17px; ">
+            <div class="col">
+                <img src="../img/111.jpg" class="img-thumbnail" alt="" height="100px" width="100px" >
+                
+                <h2 style="color: rgb(5, 70, 222); text-shadow:1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; "><i><b>Thức Ăn</b></i></h2>
+                
+            </div>
+            <div class="col">
+                <div >
+                    
+                    <a href="../html/Trangchu.html" style="text-decoration: none;" ><b style="color: black;" ><div class="mc">TRANG CHỦ</div></b></a>
+                    
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <b>Phương thức thanh toán:</b><br>
+                    <span>
+                        <img src="../img/vietinbank-removebg-preview.png" alt="" width="80px" height="60px">
+                        <img src="../img/agribank-removebg-preview.png" alt="" width="80px" height="60px">
+    
+                        <img src="../img/MBBank-removebg-preview.png" alt="" width="80px" height="50px">
+                        <img src="../img/BIDN-removebg-preview.png" srcset="" width="80px" height="60px">
+                        <img src="../img/vietcombank-removebg-preview.png" alt="" width="80px" height="60px">
+                    </span>
+                </div>
+            </div>
+            <div class="col">
+                
+                <b><a href="../html/Dongho.html" style="color: black; text-decoration: none;"><div class="mc">Thức Ăn</div></a></b><br>
+                <a href="../html/Dongho.html" style="color: black; text-decoration: none;"> Đồ Ăn Cho Mèo</a><br>
+                <a href="../html/Dongho.html" style="color: black; text-decoration: none;">Đồ Ăn Cho Chó</a>  <br>
+                <a href="../html/Dongho.html" style="color: black; text-decoration: none;">Dụng Cụ</a>
+                
+            </div>
+            <div class="col">
+                <a href="../html/Gioithieu.html" style="text-decoration: none;"><b style="color: black;"><div class="mc">GIỚI THIỆU</div></b></a><br>
+                <a href="../html/Gioithieu.html" style="color: black; text-decoration: none;">Giới thiệu Thức Ăn</a>
+                <br><a href="../html/Gioithieu.html" style="color: black; text-decoration: none;">Giới thiệu thành viên</a>
+            </div>
+            <div class="col">
+                <a href="../html/Lienhe.html" style="text-decoration: none;"><b style="color: black;"><div class="mc">LIÊN HỆ</div></b></a>
+                <br>
+                <p>Hotline tư vấn: <br>
+                    0783971953-0962313853</p>
+                <p>Email: petshop@gmail.com</p>
+                <p>
+                    Địa chỉ:  61 Quang Trung, P10, Gò Vấp, HCM.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    
+</script>
+</html>

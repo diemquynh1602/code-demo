@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="shortcut icon" href="../img/LOGO.webp">
+    
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    
+    
+    <style>
+       
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #233243;
+            position: relative; /* Ensure relative positioning for absolute positioning */
+        }
+
+        /* Styling for the "Trang chủ" link */
+        .home-link {
+            position: absolute; /* Position absolutely within the body */
+            top: 10px; /* Adjust top position */
+            left: 10px; /* Adjust left position */
+            color: #fff; /* White text color */
+            text-decoration: none; /* Remove underline */
+            font-size: 14px; /* Adjust font size */
+        }
+
+        .container{
+            padding: 40px;
+            border-radius: 20px;
+            border: 8px solid #233243;
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, .1),
+            -5px -5px 15px rgba(255, 255, 255, .1),
+            inset -5px -5px 15px rgba(255, 255, 255, .1),
+            inset 5px 5px 15px rgba(0,0,0.35);
+        }
+
+        .container .form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .container .form.sigin,
+        .container .form.siginform{
+            display: none;
+        }
+        .container .form.siginform.form.form.sigin{
+            display: none;
+        }
+        .container.form h2{
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+        }
+
+        .container .form .inputBox{
+            position: relative;
+            width: 300px;
+        }
+
+        .container .form .inputBox input{
+            padding: 12px 10px 12px 40px;
+            border: none;
+            width: 100%;
+            background: #233243;
+            border: 1px solid rgba(0,0,0,.1);
+            color: #fff;
+            border-radius: 25px;
+            font-weight: 300;
+            font-size: 1em;
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, .1),
+            5px 5px 15px rgba(0,0,0,.1);
+            transition: 0,5s;
+            outline: none;
+        }
+
+        .container .form .inputBox span{
+            position: absolute;
+            left: 0;
+            padding: 12px 10px 12px 40px;
+            pointer-events: none;
+            font-weight: 300;
+            transition: .5s;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, .1);
+        }
+
+        .container .form .inputBox .input:valid ~ span,
+        .container .form .inputBox .input:focus ~ span{
+            color: #00dfc4;
+            background: #233243;
+            transform: translateX(25px) translateY(-7px);
+            font-size: 0.5em;
+            padding: 0 8px;
+            border-radius: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        .container .form .inputBox input:valid,
+        .container .form .inputBox input:focus{
+            border: 1px;
+        }
+
+        .container .form .inputBox i {
+            position: absolute;
+            top: 15px;
+            left: 10px;
+            width: 2px 0;
+            padding-right: 0px;
+            color: #00dfc4;
+            border-right: 1px solid #00dfc4;
+        }
+
+        .container .form .inputBox input[typer="submit"]{
+            background: #00dfc4;
+            color: #233243;
+            padding: 10px 0;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: -5px -5px 15px rgba(255, 255, 255, .1),
+            5px 5px 15px rgba(0,0,0,.35),
+            inset -5px -5px 15px rgba(255, 255, 255, .1),
+            inset 5px 5px 15px rgba(0,0,0,.35);
+        }
+
+        .container .form p{
+            color: rgba(255, 255, 255, .15);
+            font-size: .75em;
+            font-weight: 300;
+        }
+
+        .container .form p a{
+            font-weight: 500;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <a href="../html/Trangchu.html" class="home-link">Trang chủ</a>
+    <div class="container">
+        <div class="form signin">
+            <h2>Đăng nhập</h2>
+            <div class="inputBox">
+                <input type="text" required="required" placeholder="Tên đăng nhập" />
+                <i class="fa-regular fa-user"></i>
+                
+            </div>
+            <div class="inputBox">
+                <input type="text" required="required" placeholder="Mật khẩu"/>
+                <i class="fa-solid fa-lock"></i>
+                
+            </div>
+            <div class="inputBox">
+                <a href="../html/Sitemap.html"><input type="submit" value="Đăng nhập" /></a>
+            </div>
+            <p>Chưa có tài khoản? <a href="../html/Dangky.html" class="creat">Đăng ký</a></p>
+        </div>
+    </div>
+</body>
+<script>
+    let login = document.querySelector(".login");
+    let creat = document.querySelector(".creat");
+    let container = document.querySelector(".container");
+
+    login.onclick = function(){
+        container.classList.add("signinForm");
+    }
+
+    creat.onclick = function(){
+        container.classList.remove("signinForm");
+    }
+</script>
+</html>
