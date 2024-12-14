@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vê chúng tôi</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/fontawesome-all.css">
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #fff7e6;
+            color: #4d2600;
+        }
+
+        /*Header*/
+        .bg-gradient-orange {
+            background: linear-gradient(45deg, #ffa726, #ff7043);
+            color: white;
+        }
+
+        .bg-color {
+            background-color: #d77a1f;
+        }
+
+        .text-orange {
+            color: #ffa726;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #ffa726, #fb8c00);
+            color: white;
+            border: none;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, #fb8c00, #ffa726);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 1rem;
+        }
+
+        .navbar-collapse {
+            padding-left: 500px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .navbar-nav .nav-link {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #4f3002 !important;
+        }
+
+        .mini-search {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mini-search input {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding-left: 35px;
+            transition: width 0.4s;
+        }
+
+        .mini-search input:focus {
+            width: 250px;
+            outline: none;
+        }
+
+        .mini-search .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            color: #ffa726;
+            font-size: 1rem;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .team-section .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-section {
+            padding: 50px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .team-card {
+            background: linear-gradient(145deg, #ffd966, #ffac33);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .team-card h5 {
+            color: #4d2600;
+        }
+
+        .team-photo {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid #ffac33;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+
+
+        /*footer*/
+        .footer {
+            background-image: url('../image/bannerfooter.png');
+            background-size: cover;
+            color: #fff;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+        }
+
+        .map iframe {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-color shadow-sm">
+            <a class="navbar-brand text-orange font-weight-bold" href="#"><img src="../image/Logo.jpg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../html/sweet.html">Trang chủ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Sản phẩm</a>
+                        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <a class="dropdown-item" href="../html/Danh muc san pham.html">Sản phẩm chung</a>
+                            <a class="dropdown-item" href="../html/saydeo.html">Sấy dẻo</a>
+                            <a class="dropdown-item" href="../html/saykho.html">Sấy khô</a>
+                            <a class="dropdown-item" href="../html/nuoccot.html">Nước cốt</a>
+                            <a class="dropdown-item" href="../html/hopqua.html">Hộp quà</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../html/thanhtoan.html">Thanh toán</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../html/about us.html">Về chúng tôi</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Chính sách</a>
+                        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <a class="dropdown-item" href="../html/trang chinh sach khach hang.html">Chính sách khách
+                                hàng</a>
+                            <a class="dropdown-item" href="../html/chinh sach bao mat.html">Chính sách bảo mật</a>
+                            <a class="dropdown-item" href="../html/chinh sach doi tra.html">Chính sách đổi trả hàng</a>
+                            <a class="dropdown-item" href="../html/chinh sach thanh toan.html">Chính sách thanh toán</a>
+                            <a class="dropdown-item" href="../html/chinh sach giao nhan.html">Chính sách giao nhận
+                                hàng</a>
+                            <a class="dropdown-item" href="../html/cau hoi thuong gap.html">Câu hỏi thường gặp</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../html/lien he.html">Liên hệ</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dangnhap.html">Đăng xuất</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="mini-search" style="position: relative;">
+                            <input type="text" id="searchBar" placeholder="Tìm kiếm..." oninput="searchProducts()">
+                            <div id="searchResults" class="search-results-container"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="text-end mb-4 cart-icon-container">
+                            <a href="../html/demogiohang.html" class="position-relative text-decoration-none text-dark">
+                                <i class="fas fa-shopping-cart fa-2x cart-icon"></i>
+                                <span id="cartCount"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container text-center">
+        <div class="py-4">
+            <h1>THÀNH VIÊN CỦA NHÓM</h1>
+        </div>
+        <section class="team-section row">
+            <!-- Member 1 -->
+            <div class="col">
+                <div class="team-card p-3">
+                    <img src="../img member/Thuận.jpg" alt="Member 1" class="team-photo mx-auto">
+                    <div class="card-body">
+                        <h5>Huỳnh Nguyễn Minh Thuận</h5>
+                        <p class="text-muted">22636281</p>
+                        <p>Tạo trang giỏ hàng và soạn chương 4,5: Kết luận - Hướng phát triển và tài liệu tham khảo</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Member 2 -->
+            <div class="col">
+                <div class="team-card p-3">
+                    <img src="../img member/tín.jpg" alt="Member 2" class="team-photo mx-auto">
+                    <div class="card-body">
+                        <h5>Bùi Trọng Tín</h5>
+                        <p class="text-muted">22633741</p>
+                        <p>Tạo trang chủ; trang về chúng tôi; trang đăng ký, đăng nhập và soạn chương 2: phân tích ứng
+                            dụng</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Member 3 -->
+            <div class="col">
+                <div class="team-card p-3">
+                    <img src="../img member/Thảo.jpg" alt="Member 3" class="team-photo mx-auto">
+                    <div class="card-body">
+                        <h5>Lê Thị Thu Thảo</h5>
+                        <p class="text-muted">22633731</p>
+                        <p>Tạo trang chính sách; trang liên hệ và soạn chương 1: phần 1.1; chương 3: hình ảnh web</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Member 4 -->
+            <div class="col">
+                <div class="team-card p-3">
+                    <img src="../img member/Phuc.jpg" alt="Member 4" class="team-photo mx-auto">
+                    <div class="card-body">
+                        <h5>Phạm Hồng Phúc</h5>
+                        <p class="text-muted">22635381</p>
+                        <p>Tạo trang danh mục sản phẩm; các trang sản phẩm và tổng hợp, chỉnh sửa word</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Member 5 -->
+            <div class="col">
+                <div class="team-card p-3">
+                    <img src="../img member/quân.jpg" alt="Member 5" class="team-photo mx-auto">
+                    <div class="card-body">
+                        <h5>Nguyễn Hữu Quân</h5>
+                        <p class="text-muted">22639231</p>
+                        <p>Tạo trang thanh toán và soạn chương 1: phần 1.2 cơ sở lý thuyết và các thông tin kỹ thuật</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer class="footer py-5 text-light" style="width: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>CÔNG TY TNHH SWEET HARVEST</h5>
+                    <p>MST: 5801284345</p>
+                    <p>Địa chỉ: 12 Nguyễn Văn Bảo, P4, Q.Gò Vấp, TP.Hồ Chí Minh</p>
+                    <p>Hotline: 02838940390</p>
+                    <p>E-mail: dhcn@iuh.edu.vn</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/sviuh/" class="text-light me-3"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@iuh.dhcntphcm" class="text-light me-3"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>THÔNG TIN CÔNG TY</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../html/sweet.html" class="text-light">Trang chủ</a></li>
+                        <li><a href="../html/trang chinh sach khach hang.html" class="text-light">Về chính sách</a></li>
+                        <li><a href="../html/Danh muc san pham.html" class="text-light">Sản phẩm</a></li>
+                        <li><a href="../html/lien he.html" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>CHÍNH SÁCH KHÁCH HÀNG</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../html/huong dan dat hang.html" class="text-light">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="../html/chinh sach bao mat.html" class="text-light">Chính sách bảo mật</a></li>
+                        <li><a href="../html/chinh sach doi tra.html" class="text-light">Chính sách đổi trả hàng</a>
+                        </li>
+                        <li><a href="../html/chinh sach thanh toan.html" class="text-light">Chính sách thanh toán</a>
+                        </li>
+                        <li><a href="../html/chinh sach giao nhan.html" class="text-light">Chính sách giao nhận hàng</a>
+                        </li>
+                        <li><a href="../html/trang chinh sach khach hang.html" class="text-light">Chính sách khách
+                                hàng</a></li>
+                        <li><a href="../html/cau hoi thuong gap.html" class="text-light">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="map mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.714559462964!2d106.68620166955597!3d10.822158899333079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1731571747092!5m2!1svi!2s"
+                            width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <p>&copy; 2023 Sweet Harvest</p>
+        </div>
+    </footer>
+</body>
+
+</html>

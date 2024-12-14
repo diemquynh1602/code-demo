@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục sản phẩm</title>
+    <link rel="stylesheet" href="../css/fontawesome-all.css">
+    <link rel="stylesheet" href="../bootstrap.css">
+    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <style>
+        .category-header {
+            background-color: #d8904a;
+            color: white;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .accordion-button {
+            background-color: #fff;
+            color: #333;
+            font-weight: 600;
+            padding-left: 15px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #d8904a;
+            font-weight: 700;
+        }
+
+        .accordion-item {
+            border: none;
+        }
+
+        .accordion-body {
+            padding-left: 25px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .product-card {
+            transition: all 0.3s ease-in-out;
+            border: none;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .product-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #d9534f;
+        }
+
+        .btn-buy {
+            background-color: #5cb85c;
+            color: white;
+            font-weight: 600;
+        }
+
+        .accordion-header a {
+            display: block;
+            text-decoration: none;
+            background-color: white;
+            color: #333;
+            font-weight: 600;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .accordion-header a:hover {
+            background-color: #d8904a;
+            color: #fff;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #d8904a;
+            border-color: #d8904a;
+            color: white;
+        }
+
+        .pagination .page-link {
+            color: #333;
+            border-radius: 50%;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .cart-icon-container {
+            position: relative;
+        }
+
+        .bg-gradient-orange {
+            background: linear-gradient(45deg, #ffa726, #ff7043);
+            color: white;
+        }
+
+        .text-orange {
+            color: #ffa726;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #ffa726, #fb8c00);
+            color: white;
+            border: none;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, #fb8c00, #ffa726);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 1rem;
+        }
+
+        .navbar-collapse {
+            padding-left: 500px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #555;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffa726 !important;
+        }
+
+        .mini-search {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mini-search input {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding-left: 35px;
+            transition: width 0.4s;
+        }
+
+        .mini-search input:focus {
+            width: 250px;
+            outline: none;
+        }
+
+        .mini-search .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            color: #ffa726;
+            font-size: 1rem;
+        }
+
+        /*Header*/
+        .bg-gradient-orange {
+            background: linear-gradient(45deg, #ffa726, #ff7043);
+            color: white;
+        }
+
+        .bg-color {
+            background-color: #d77a1f;
+        }
+
+        .text-orange {
+            color: #ffa726;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #ffa726, #fb8c00);
+            color: white;
+            border: none;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, #fb8c00, #ffa726);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 1rem;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .navbar-nav .nav-link {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #4f3002 !important;
+        }
+
+        .mini-search {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mini-search input {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding-left: 35px;
+            transition: width 0.4s;
+        }
+
+        .mini-search input:focus {
+            width: 250px;
+            outline: none;
+        }
+
+        .mini-search .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            color: #ffa726;
+            font-size: 1rem;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        /*footer*/
+        .footer {
+            background-image: url('../image/bannerfooter.png');
+            background-size: cover;
+            color: #fff;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+        }
+
+        .map iframe {
+            border-radius: 8px;
+        }
+
+        #searchBar {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-results-container {
+            position: absolute;
+            top: 70px;
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 10;
+        }
+
+        .search-result-item {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-result-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .search-result-content img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-color shadow-sm">
+            <a class="navbar-brand text-orange font-weight-bold" href="#"><img src="../image/Logo.jpg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../html/sweet.html">Trang chủ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Sản phẩm</a>
+                        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <a class="dropdown-item" href="../html/Danh muc san pham.html">Sản phẩm chung</a>
+                            <a class="dropdown-item" href="../html/saydeo.html">Sấy dẻo</a>
+                            <a class="dropdown-item" href="../html/saykho.html">Sấy khô</a>
+                            <a class="dropdown-item" href="../html/nuoccot.html">Nước cốt</a>
+                            <a class="dropdown-item" href="../html/hopqua.html">Hộp quà</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../html/thanhtoan.html">Thanh toán</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../html/about us.html">Về chúng tôi</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Chính sách</a>
+                        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <a class="dropdown-item" href="../html/trang chinh sach khach hang.html">Chính sách khách
+                                hàng</a>
+                            <a class="dropdown-item" href="../html/chinh sach bao mat.html">Chính sách bảo mật</a>
+                            <a class="dropdown-item" href="../html/chinh sach doi tra.html">Chính sách đổi trả hàng</a>
+                            <a class="dropdown-item" href="../html/chinh sach thanh toan.html">Chính sách thanh toán</a>
+                            <a class="dropdown-item" href="../html/chinh sach giao nhan.html">Chính sách giao nhận
+                                hàng</a>
+                            <a class="dropdown-item" href="../html/cau hoi thuong gap.html">Câu hỏi thường gặp</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../html/lien he.html">Liên hệ</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dangnhap.html">Đăng xuất</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="mini-search" style="position: relative;">
+                            <input type="text" id="searchBar" placeholder="Tìm kiếm..." oninput="searchProducts()">
+                            <div id="searchResults" class="search-results-container"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="text-end mb-4 cart-icon-container">
+                            <a href="../html/demogiohang.html" class="position-relative text-decoration-none text-dark">
+                                <i class="fas fa-shopping-cart fa-2x cart-icon"></i>
+                                <span id="cartCount"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Navbar -->
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="category-header">
+                    DANH MỤC SẢN PHẨM
+                </div>
+                <div class="accordion" id="categoryAccordion">
+                    <div class="accordion" id="categoryAccordion">
+                        <!-- sản phẩm -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <a href="../html/Danh muc san pham.html" class="accordion-button">
+                                    Sản phẩm chung
+                                </a>
+                            </h2>
+                        </div>
+
+                        <!-- Sấy Dẻo -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <a href="../html/saydeo.html" class="accordion-button">
+                                    Sấy Dẻo
+                                </a>
+                            </h2>
+                        </div>
+
+                        <!-- Sấy Khô -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <a href="../html/saykho.html" class="accordion-button">
+                                    Sấy Khô
+                                </a>
+                            </h2>
+                        </div>
+
+                        <!-- Nước Cốt -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <a href="../html/nuoccot.html" class="accordion-button">
+                                    Nước Cốt
+                                </a>
+                            </h2>
+                        </div>
+
+                        <!-- Hộp Quà -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <a href="../html/hopqua.html" class="accordion-button">
+                                    Hộp Quà
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product List -->
+            <div class="col-md-9">
+                <div class="row">
+                    <!-- Product Item 1 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="300000">
+                            <img src="../img/sầu riêng.jpg" class="card-img-top product-img" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Sầu Riêng Sấy</h5>
+                                <p class="card-text product-price">300.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 2 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="200000">
+                            <img src="../img/chanh dây sấy.jpg" class="card-img-top product-img" alt="Product 2">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Chanh dây sấy</h5>
+                                <p class="card-text product-price">250.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 3 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="300000">
+                            <img src="../img/mít sấy.jpg" class="card-img-top product-img" alt="Product 3">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Mít sấy</h5>
+                                <p class="card-text product-price">300.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 4 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="150000">
+                            <img src="../img/sake.jpg" class="card-img-top product-img" alt="Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Sake sấy</h5>
+                                <p class="card-text product-price">150.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 5 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="200000">
+                            <img src="../img/atiso.jpg" class="card-img-top product-img" alt="Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Atiso sấy</h5>
+                                <p class="card-text product-price">200.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 6 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="100000">
+                            <img src="../img/dâu tằm.jpg" class="card-img-top product-img" alt="Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Dâu tằm sấy</h5>
+                                <p class="card-text product-price">100.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 5 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="150000">
+                            <img src="../img saykho/chuóiaykho.jpeg" class="card-img-top product-img" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Chuối sấy khô</h5>
+                                <p class="card-text product-price">150.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 6 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="250000">
+                            <img src="../img saykho/xoáiaykho.jpg" class="card-img-top product-img" alt="Product 2">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Xoài sấy khô</h5>
+                                <p class="card-text product-price">250.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 7 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="100000">
+                            <img src="../img saykho/khoai say.jpg" class="card-img-top product-img" alt="Product 3">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Khoai sấy khô</h5>
+                                <p class="card-text product-price">100.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 8 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="300000">
+                            <img src="../img saykho/dautaysaykho.jpg" class="card-img-top product-img" alt="Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Dâu tây sấy</h5>
+                                <p class="card-text product-price">300.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 9 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="50000">
+                            <img src="../img hopqua/hcn.jpg" class="card-img-top product-img" alt="Product 1">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Hộp quà hình chữ nhật</h5>
+                                <p class="card-text product-price">50.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 10 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="50000">
+                            <img src="../img hopqua/trụ.jpg" class="card-img-top product-img" alt="Product 2">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Hộp quà hình trụ</h5>
+                                <p class="card-text product-price">50.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 11 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="100000">
+                            <img src="../img hopqua/tym.jpg" class="card-img-top product-img" alt="Product 3">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Hộp quà hình trái tim</h5>
+                                <p class="card-text product-price">100.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Item 12 -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card" data-price="50000">
+                            <img src="../img hopqua/vuong.jpg" class="card-img-top product-img" alt="Product 4">
+                            <div class="card-body">
+                                <h5 class="card-title product-title">Hộp quà hình vuông</h5>
+                                <p class="card-text product-price">50.000 đ</p>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-buy flex-fill" onclick="addToCart(this)">Thêm vào giỏ
+                                        hàng</button>
+                                    <button class="btn btn-danger flex-fill" onclick="buyNow(this)">Mua Ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center" id="pagination">
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer py-5 text-light" style="width: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>CÔNG TY TNHH SWEET HARVEST</h5>
+                    <p>MST: 5801284345</p>
+                    <p>Địa chỉ: 12 Nguyễn Văn Bảo, P4, Q.Gò Vấp, TP.Hồ Chí Minh</p>
+                    <p>Hotline: 02838940390</p>
+                    <p>E-mail: dhcn@iuh.edu.vn</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/sviuh/" class="text-light me-3"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@iuh.dhcntphcm" class="text-light me-3"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>THÔNG TIN CÔNG TY</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../html/sweet.html" class="text-light">Trang chủ</a></li>
+                        <li><a href="../html/trang chinh sach khach hang.html" class="text-light">Về chính sách</a></li>
+                        <li><a href="../html/Danh muc san pham.html" class="text-light">Sản phẩm</a></li>
+                        <li><a href="../html/lien he.html" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>CHÍNH SÁCH KHÁCH HÀNG</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../html/trang chinh sach khach hang.html" class="text-light">Chính sách khách
+                                hàng</a></li>
+                        <li><a href="../html/huong dan dat hang.html" class="text-light">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="../html/chinh sach bao mat.html" class="text-light">Chính sách bảo mật</a></li>
+                        <li><a href="../html/chinh sach doi tra.html" class="text-light">Chính sách đổi trả hàng</a>
+                        </li>
+                        <li><a href="../html/chinh sach thanh toan.html" class="text-light">Chính sách thanh toán</a>
+                        </li>
+                        <li><a href="../html/chinh sach giao nhan.html" class="text-light">Chính sách giao nhận hàng</a>
+                        </li>
+                        <li><a href="../html/cau hoi thuong gap.html" class="text-light">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="map mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.714559462964!2d106.68620166955597!3d10.822158899333079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1731571747092!5m2!1svi!2s"
+                            width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <p>&copy; 2023 Sweet Harvest</p>
+        </div>
+    </footer>
+
+    <script>
+        // Số sản phẩm trên mỗi trang
+        const itemsPerPage = 6;
+
+        // Lấy danh sách sản phẩm
+        const products = document.querySelectorAll('.product-card');
+        const totalPages = Math.ceil(products.length / itemsPerPage);
+
+        function showPage(pageNumber) {
+            // Tính toán vị trí sản phẩm đầu tiên và cuối cùng trên trang
+            const startIndex = (pageNumber - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            // Ẩn tất cả sản phẩm trước khi hiển thị sản phẩm thuộc trang hiện tại
+            products.forEach((product, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    product.parentElement.style.display = ''; // Hiển thị
+                } else {
+                    product.parentElement.style.display = 'none'; // Ẩn
+                }
+            });
+
+            // Cập nhật nút phân trang
+            updatePaginationButtons(pageNumber);
+        }
+
+        function updatePaginationButtons(currentPage) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = ''; // Xóa các nút phân trang cũ
+
+            // Tạo các nút phân trang
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+
+                const button = document.createElement('button');
+                button.className = 'page-link';
+                button.textContent = i;
+                button.onclick = () => showPage(i);
+
+                li.appendChild(button);
+                pagination.appendChild(li);
+            }
+        }
+
+        // Hiển thị trang đầu tiên khi tải trang
+        showPage(1);
+
+        function addToCart(button) {
+            const productCard = button.closest('.product-card');
+            const title = productCard.querySelector('.product-title').textContent;
+            const price = parseInt(productCard.getAttribute('data-price'));
+            const imageSrc = productCard.querySelector('.product-img').src;
+
+            // Lấy dữ liệu giỏ hàng từ localStorage hoặc tạo giỏ hàng mới
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Kiểm tra xem sản phẩm đã có trong giỏ chưa
+            const existingItem = cart.find(item => item.title === title);
+
+            if (existingItem) {
+                // Nếu đã có trong giỏ hàng thì tăng số lượng
+                existingItem.quantity++;
+            } else {
+                // Thêm sản phẩm mới vào giỏ hàng
+                cart.push({ title, price, imageSrc, quantity: 1 });
+            }
+
+            // Cập nhật giỏ hàng trong localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Thông báo thêm vào giỏ thành công và chuyển đến trang giỏ hàng
+            alert('Sản phẩm đã được thêm vào giỏ hàng!');
+            window.location.href = 'cart.html';
+        }
+        // Cập nhật số lượng sản phẩm trong giỏ hàng
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        // Thêm sản phẩm vào giỏ hàng và cập nhật số lượng
+        function addToCart(button) {
+            const productCard = button.closest('.product-card');
+            const title = productCard.querySelector('.product-title').textContent;
+            const price = parseInt(productCard.getAttribute('data-price'));
+            const imageSrc = productCard.querySelector('.product-img').src;
+
+            // Lấy dữ liệu giỏ hàng từ localStorage hoặc tạo giỏ hàng mới
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Kiểm tra xem sản phẩm đã có trong giỏ chưa
+            const existingItem = cart.find(item => item.title === title);
+
+            if (existingItem) {
+                // Nếu đã có trong giỏ hàng thì tăng số lượng
+                existingItem.quantity++;
+            } else {
+                // Thêm sản phẩm mới vào giỏ hàng
+                cart.push({ title, price, imageSrc, quantity: 1 });
+            }
+
+            // Cập nhật giỏ hàng trong localStorage và số lượng
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount(); // Cập nhật số lượng sản phẩm trên icon giỏ hàng
+            alert('Sản phẩm đã được thêm vào giỏ hàng!');
+        }
+
+        // Tải số lượng sản phẩm trong giỏ hàng khi mở trang
+        updateCartCount();
+
+        // Lắng nghe sự kiện cho tất cả các nút "Mua ngay"
+        const buyButtons = document.querySelectorAll('.btn-buy-now');
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Lấy thông tin sản phẩm từ thuộc tính dữ liệu của sản phẩm
+                const productItem = button.closest('.product-card');
+                const product = {
+                    name: productItem.querySelector('.product-title').textContent,
+                    price: parseInt(productItem.getAttribute('data-price')),
+                    quantity: 1 // Đặt số lượng là 1 mặc định
+                };
+
+                // Lấy giỏ hàng từ localStorage (nếu có) và thêm sản phẩm vào giỏ hàng
+                let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                cartItems.push(product);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                // Thông báo người dùng
+                alert(`Đã thêm ${product.name} vào giỏ hàng!`);
+
+                // Chuyển hướng sang trang thanh toán
+                window.location.href = 'thanhtoan.html'; // Chuyển tới trang thanh toán
+            });
+        });
+
+        // Hàm để mua ngay (lưu thông tin sản phẩm và chuyển đến trang thanh toán)
+        function buyNow(button) {
+            const productCard = button.closest('.product-card');
+            const title = productCard.querySelector('.product-title').textContent;
+            const price = parseInt(productCard.getAttribute('data-price'));
+            const imageSrc = productCard.querySelector('.product-img').src;
+            const productName = productCard.querySelector('.product-title').textContent;
+            const productPrice = productCard.querySelector('.product-price').textContent.replace(' đ', '').replace('.', '');
+
+            const product = {
+                name: productName,
+                price: parseInt(productPrice)
+            };
+
+            // Lưu thông tin sản phẩm vào localStorage
+            localStorage.setItem('cartItems', JSON.stringify([product])); // Chỉ lưu 1 sản phẩm khi mua ngay
+
+            // Chuyển hướng đến trang thanh toán
+            window.location.href = 'thanhtoan.html'; // Đảm bảo đúng đường dẫn đến trang thanh toán
+        }
+        function searchProducts() {
+            const products = [
+                { name: "Sầu Riêng Sấy", price: "300.000 đ", image: "../img/sầu riêng.jpg", url: "#" },
+                { name: "Mít Sấy", price: "200.000 đ", image: "../img/mít sấy.jpg", url: "#" },
+                { name: "Chanh dây sấy", price: "250.000 đ", image: "../img/chanh dây sấy.jpg", url: "#" },
+                { name: "Atiso sấy", price: "200.000 đ", image: "../img/atiso.jpg", url: "#" },
+                { name: "Dâu tây sấy dẻo", price: "150.000 đ", image: "../img saydeo/dau-tay-say-deo-berryland-hop-155g.jpg", url: "#" },
+                { name: "Dâu tằm sấy dẻo", price: "250.000 đ", image: "../img saydeo/dau-tay-say-deo-berryland-tui-26g.jpg", url: "#" },
+                { name: "Xoài sấy dẻo", price: "180.000 đ", image: "../img saydeo/xoài.jpg", url: "#" },
+                { name: "Cóc sấy dẻo", price: "250.000 đ", image: "../img saydeo/unnamed.jpg", url: "#" },
+                { name: "Hộp quà hình chữ nhật", price: "50.000 đ", image: "../img hopqua/hcn.jpg", url: "#" },
+                { name: "Hộp quà hình trụ", price: "50.000 đ", image: "../img hopqua/trụ.jpg", url: "#" },
+                { name: "Hộp quà hình trái tim", price: "100.000 đ", image: "../img hopqua/tym.jpg", url: "#" },
+                { name: "Hộp quà hình vuông", price: "50.000 đ", image: "../img hopqua/vuong.jpg", url: "#" },
+                { name: "Nước cốt atiso", price: "250.000 đ", image: "../img nuoccot/atiso.jpg", url: "#" },
+                { name: "Nước cốt cam", price: "150.000 đ", image: "../img nuoccot/cam.jpg", url: "#" },
+                { name: "Nước cốt dâu", price: "100.000 đ", image: "../img nuoccot/dau.jpg", url: "#" },
+                { name: "Nước cốt thơm", price: "50.000 đ", image: "../img nuoccot/thom.jpg", url: "#" },
+                { name: "Chuối sấy khô", price: "150.000 đ", image: "../img saykho/chuóiaykho.jpeg", url: "#" },
+                { name: "Xoài sấy khô", price: "250.000 đ", image: "../img saykho/xoáiaykho.jpg", url: "#" },
+                { name: "Khoai sấy khô", price: "100.000 đ", image: "../img saykho/khoai say.jpg", url: "#" },
+                { name: "Dâu tây sấy", price: "300.000 đ", image: "../img saykho/dautaysaykho.jpg", url: "#" },
+            ];
+
+            const searchInput = document.getElementById("searchBar").value.toLowerCase();
+            const resultsContainer = document.getElementById("searchResults");
+
+            resultsContainer.innerHTML = "";
+
+            if (searchInput) {
+                resultsContainer.style.display = "block";
+
+                const filteredProducts = products.filter(product =>
+                    product.name.toLowerCase().includes(searchInput)
+                );
+
+                if (filteredProducts.length > 0) {
+                    filteredProducts.forEach(product => {
+                        const productHTML = `
+                    <a href="${product.url}" class="search-result-item">
+                        <div class="search-result-content">
+                            <img src="${product.image}" alt="${product.name}">
+                            <span>${product.name}</span> - <span>${product.price}</span>
+                        </div>
+                    </a>
+                `;
+                        resultsContainer.insertAdjacentHTML("beforeend", productHTML);
+                    });
+                } else {
+                    resultsContainer.innerHTML = "<p class='text-center'>Không tìm thấy sản phẩm nào.</p>";
+                }
+            } else {
+                resultsContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính Sách Khách Hàng</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/fontawesome-all.css">
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <style>
+        .sidebar {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar .menu-header {
+            font-weight: bold;
+            color: #d77a1f;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .sidebar .menu-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .sidebar .menu-item a {
+            color: #d77a1f;
+            text-decoration: none;
+        }
+
+        .sidebar .menu-item a:hover {
+            color: #ff8800;
+            text-decoration: underline;
+        }
+
+        .content-header {
+            color: #d77a1f;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .content-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .content-text {
+            margin-top: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .bg-gradient-orange {
+            background: linear-gradient(45deg, #ffa726, #ff7043);
+            color: white;
+        }
+
+        .bg-color {
+            background-color: #d77a1f;
+        }
+
+        .text-orange {
+            color: #ffa726;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #ffa726, #fb8c00);
+            color: white;
+            border: none;
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, #fb8c00, #ffa726);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 1rem;
+        }
+
+        .navbar-collapse {
+            padding-left: 500px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            color: #ffffff;
+            font-weight: 300;
+        }
+
+        .navbar-nav .nav-link {
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #4f3002 !important;
+        }
+
+        /* Floating Search */
+        .mini-search {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mini-search input {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding-left: 35px;
+            transition: width 0.4s;
+        }
+
+        .mini-search input:focus {
+            width: 250px;
+            outline: none;
+        }
+
+        .mini-search .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            color: #ffa726;
+            font-size: 1rem;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        /*footer*/
+        .footer {
+            background-image: url('../image/bannerfooter.png');
+            background-size: cover;
+            color: #fff;
+        }
+
+        .footer h5 {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .footer ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #fff;
+        }
+
+        .social-icons a {
+            font-size: 1.2rem;
+        }
+
+        .map iframe {
+            border-radius: 8px;
+        }
+
+        #searchBar {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-results-container {
+            position: absolute;
+            top: 70px;
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .search-result-item {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-result-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        .search-result-content img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-color shadow-sm">
+            <a class="navbar-brand text-orange font-weight-bold" href="#"><img src="../image/Logo.jpg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../html/sweet.html">Trang chủ</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Sản phẩm</a>
+                        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <a class="dropdown-item" href="../html/Danh muc san pham.html">Sản phẩm chung</a>
+                            <a class="dropdown-item" href="../html/saydeo.html">Sấy dẻo</a>
+                            <a class="dropdown-item" href="../html/saykho.html">Sấy khô</a>
+                            <a class="dropdown-item" href="../html/nuoccot.html">Nước cốt</a>
+                            <a class="dropdown-item" href="../html/hopqua.html">Hộp quà</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../html/thanhtoan.html">Thanh toán</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../html/about us.html">Về chúng tôi</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Chính sách</a>
+                        <div class="dropdown-menu" aria-labelledby="productsDropdown">
+                            <a class="dropdown-item" href="../html/trang chinh sach khach hang.html">Chính sách khách
+                                hàng</a>
+                            <a class="dropdown-item" href="../html/chinh sach bao mat.html">Chính sách bảo mật</a>
+                            <a class="dropdown-item" href="../html/chinh sach doi tra.html">Chính sách đổi trả hàng</a>
+                            <a class="dropdown-item" href="../html/chinh sach thanh toan.html">Chính sách thanh toán</a>
+                            <a class="dropdown-item" href="../html/chinh sach giao nhan.html">Chính sách giao nhận
+                                hàng</a>
+                            <a class="dropdown-item" href="../html/cau hoi thuong gap.html">Câu hỏi thường gặp</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../html/lien he.html">Liên hệ</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dangnhap.html">Đăng xuất</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="mini-search" style="position: relative;">
+                            <input type="text" id="searchBar" placeholder="Tìm kiếm..." oninput="searchProducts()">
+                            <div id="searchResults" class="search-results-container"></div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="text-end mb-4 cart-icon-container">
+                            <a href="../html/demogiohang.html" class="position-relative text-decoration-none text-dark">
+                                <i class="fas fa-shopping-cart fa-2x cart-icon"></i>
+                                <span id="cartCount"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    0
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="menu-header">CHÍNH SÁCH KHÁCH HÀNG</div>
+                <div class="menu-item"><a href="/html/huong dan dat hang.html">Hướng dẫn đặt hàng</a></div>
+                <div class="menu-item"><a href="/html/chinh sach bao mat.html">Chính sách bảo mật</a></div>
+                <div class="menu-item"><a href="/html/chinh sach doi tra.html">Chính sách đổi trả hàng</a></div>
+                <div class="menu-item"><a href="/html/chinh sach thanh toan.html">Chính sách thanh toán</a></div>
+                <div class="menu-item"><a href="/html/chinh sach giao nhan.html">Chính sách giao nhận hàng</a></div>
+                <div class="menu-item"><a href="/html/cau hoi thuong gap.html">Câu hỏi thường gặp</a></div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="content-header">HƯỚNG DẪN ĐẶT HÀNG TRÊN WEBSITE SWEET HARVEST</div>
+                <img src="../image/1.png" alt="Hướng Dẫn Đặt Hàng" class="content-image">
+                <div class="content-text">
+                    <p>Các bước mua hàng trên website được thực hiện như sau:</p>
+                    <p><strong>Bước 1: Tìm kiếm sản phẩm:</strong><br>
+                        Quý khách có thể tìm kiếm sản phẩm theo 1 trong 3 cách:
+                    <ul>
+                        <li>Gõ tên sản phẩm vào thanh tìm kiếm.</li>
+                        <li>Thêm theo danh mục.</li>
+                        <li>Tìm theo các sản phẩm nổi bật hoặc bán chạy.</li>
+                    </ul>
+                    </p>
+                    <p><strong>Bước 2: Thêm sản phẩm vào giỏ hàng:</strong><br>
+                        Khi đã tìm được sản phẩm mong muốn, quý khách vui lòng bấm vào hình hoặc tên của sản phẩm để vào
+                        trang thông tin chi tiết của sản phẩm, sau đó:
+                    <ul>
+                        <li>Kiểm tra thông tin sản phẩm, giá cả, thông tin khuyến mãi.</li>
+                        <li>Chọn số lượng mong muốn.</li>
+                        <li>Thêm sản phẩm vào giỏ hàng.</li>
+                    </ul>
+                    </p>
+                    <p><strong>Bước 3: Kiểm tra giỏ hàng và đặt hàng</strong><br>
+                        Để đặt nhiều sản phẩm khác nhau vào cùng một đơn hàng, vui lòng thực hiện theo các bước sau:
+                    <ul>
+                        <li>Click vào logo để quay lại trang chủ.</li>
+                        <li>Lặp lại bước tìm kiếm sản phẩm và thêm vào giỏ hàng cho các sản phẩm khác.</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5 text-light" style="width: 100%;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>CÔNG TY TNHH SWEET HARVEST</h5>
+                    <p>MST: 5801284345</p>
+                    <p>Địa chỉ: 12 Nguyễn Văn Bảo, P4, Q.Gò Vấp, TP.Hồ Chí Minh</p>
+                    <p>Hotline: 02838940390</p>
+                    <p>E-mail: dhcn@iuh.edu.vn</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/sviuh/" class="text-light me-3"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@iuh.dhcntphcm" class="text-light me-3"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>THÔNG TIN CÔNG TY</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../html/sweet.html" class="text-light">Trang chủ</a></li>
+                        <li><a href="../html/trang chinh sach khach hang.html" class="text-light">Về chính sách</a></li>
+                        <li><a href="../html/Danh muc san pham.html" class="text-light">Sản phẩm</a></li>
+                        <li><a href="../html/lien he.html" class="text-light">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>CHÍNH SÁCH KHÁCH HÀNG</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="../html/trang chinh sach khach hang.html" class="text-light">Chính sách khách
+                                hàng</a></li>
+                        <li><a href="../html/huong dan dat hang.html" class="text-light">Hướng dẫn đặt hàng</a></li>
+                        <li><a href="../html/chinh sach bao mat.html" class="text-light">Chính sách bảo mật</a></li>
+                        <li><a href="../html/chinh sach doi tra.html" class="text-light">Chính sách đổi trả hàng</a>
+                        </li>
+                        <li><a href="../html/chinh sach thanh toan.html" class="text-light">Chính sách thanh toán</a>
+                        </li>
+                        <li><a href="../html/chinh sach giao nhan.html" class="text-light">Chính sách giao nhận hàng</a>
+                        </li>
+                        <li><a href="../html/cau hoi thuong gap.html" class="text-light">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="map mb-3">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.714559462964!2d106.68620166955597!3d10.822158899333079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1731571747092!5m2!1svi!2s"
+                            width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <p>&copy; 2023 Sweet Harvest</p>
+        </div>
+    </footer>
+    <script>
+        function searchProducts() {
+            const products = [
+                { name: "Sầu Riêng Sấy", price: "300.000 đ", image: "../img/sầu riêng.jpg", url: "#" },
+                { name: "Mít Sấy", price: "200.000 đ", image: "../img/mít sấy.jpg", url: "#" },
+                { name: "Chanh dây sấy", price: "250.000 đ", image: "../img/chanh dây sấy.jpg", url: "#" },
+                { name: "Atiso sấy", price: "200.000 đ", image: "../img/atiso.jpg", url: "#" },
+                { name: "Dâu tây sấy dẻo", price: "150.000 đ", image: "../img saydeo/dau-tay-say-deo-berryland-hop-155g.jpg", url: "#" },
+                { name: "Dâu tằm sấy dẻo", price: "250.000 đ", image: "../img saydeo/dau-tay-say-deo-berryland-tui-26g.jpg", url: "#" },
+                { name: "Xoài sấy dẻo", price: "180.000 đ", image: "../img saydeo/xoài.jpg", url: "#" },
+                { name: "Cóc sấy dẻo", price: "250.000 đ", image: "../img saydeo/unnamed.jpg", url: "#" },
+                { name: "Hộp quà hình chữ nhật", price: "50.000 đ", image: "../img hopqua/hcn.jpg", url: "#" },
+                { name: "Hộp quà hình trụ", price: "50.000 đ", image: "../img hopqua/trụ.jpg", url: "#" },
+                { name: "Hộp quà hình trái tim", price: "100.000 đ", image: "../img hopqua/tym.jpg", url: "#" },
+                { name: "Hộp quà hình vuông", price: "50.000 đ", image: "../img hopqua/vuong.jpg", url: "#" },
+                { name: "Nước cốt atiso", price: "250.000 đ", image: "../img nuoccot/atiso.jpg", url: "#" },
+                { name: "Nước cốt cam", price: "150.000 đ", image: "../img nuoccot/cam.jpg", url: "#" },
+                { name: "Nước cốt dâu", price: "100.000 đ", image: "../img nuoccot/dau.jpg", url: "#" },
+                { name: "Nước cốt thơm", price: "50.000 đ", image: "../img nuoccot/thom.jpg", url: "#" },
+                { name: "Chuối sấy khô", price: "150.000 đ", image: "../img saykho/chuóiaykho.jpeg", url: "#" },
+                { name: "Xoài sấy khô", price: "250.000 đ", image: "../img saykho/xoáiaykho.jpg", url: "#" },
+                { name: "Khoai sấy khô", price: "100.000 đ", image: "../img saykho/khoai say.jpg", url: "#" },
+                { name: "Dâu tây sấy", price: "300.000 đ", image: "../img saykho/dautaysaykho.jpg", url: "#" },
+            ];
+
+            const searchInput = document.getElementById("searchBar").value.toLowerCase();
+            const resultsContainer = document.getElementById("searchResults");
+
+            resultsContainer.innerHTML = "";
+
+            if (searchInput) {
+                resultsContainer.style.display = "block";
+
+                const filteredProducts = products.filter(product =>
+                    product.name.toLowerCase().includes(searchInput)
+                );
+
+                if (filteredProducts.length > 0) {
+                    filteredProducts.forEach(product => {
+                        const productHTML = `
+                    <a href="${product.url}" class="search-result-item">
+                        <div class="search-result-content">
+                            <img src="${product.image}" alt="${product.name}">
+                            <span>${product.name}</span> - <span>${product.price}</span>
+                        </div>
+                    </a>
+                `;
+                        resultsContainer.insertAdjacentHTML("beforeend", productHTML);
+                    });
+                } else {
+                    resultsContainer.innerHTML = "<p class='text-center'>Không tìm thấy sản phẩm nào.</p>";
+                }
+            } else {
+                resultsContainer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
